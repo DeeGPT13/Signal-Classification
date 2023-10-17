@@ -85,7 +85,7 @@ model.to(device)
 
 optimizer = optim.Adam(model.parameters(), lr=0.001)
 
-train_dataset = dataload.ImageDataset("train1.csv",transform=torchvision.transforms.Compose([dataload.ImagePathToTensor()]))
+train_dataset = dataload.SigDataset("train1.csv",transform=torchvision.transforms.Compose([dataload.SigPathToTensor()]))
 train_loader = DataLoader(train_dataset, batch_size = batch, shuffle = True, drop_last=True)
 
 train(n_epochs=epochs,optimizer=optimizer, model=model,loss_fn=loss_fn, train_loader=train_loader, save_file=save_file, loss_file=loss_file)
