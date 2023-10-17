@@ -8,10 +8,9 @@ import datetime
 import os
 import gc
 from torch.utils.data import DataLoader
-
+from Arch import Net
 import torchvision
 import dataload
-
 import gc 
 
 def binary_acc(y_pred, y_test):
@@ -66,8 +65,6 @@ def train(n_epochs, optimizer, model, loss_fn, train_loader, save_file, loss_fil
         print('{} Epoch {} | Training loss {} | Accuracy {}'.format(datetime.datetime.now(), epoch, loss_train/len(train_loader), acc_train/len(train_loader)))
         torch.save(model.state_dict(), save_file)
 
-
-from Arch import Net
 
 os.makedirs('Simple',exist_ok=True)
 save_file = 'Simple/Arch1.pth'
